@@ -1,8 +1,9 @@
 #!/bin/bash
 # run_emu.sh TAG ROM SCRIPT.tcl  -- headless openMSX geo3d fork, FS-A1ST_V9968
-D=/data/_claude/tmp/msx1-handoff/openmsx_geo3d
+#   OPENMSX_GEO3D=<dir with openMSX/ (built), settings.xml, user/, home/>  OUTD=<output dir, default ./emu>
+D=${OPENMSX_GEO3D:?set OPENMSX_GEO3D to the openMSX Geo3D fork setup}
 B=$D/openMSX/derived/x86_64-linux-opt-3rd
-OUTD=${OUTD:-/data/_claude/tmp/msx1-handoff/paradise/emu}
+OUTD=${OUTD:-$PWD/emu}
 mkdir -p $OUTD
 export SDL_VIDEODRIVER=offscreen SDL_AUDIODRIVER=dummy
 export OPENMSX_SYSTEM_DATA=$B/bindist/install/share OPENMSX_USER_DATA=$D/user OPENMSX_HOME=$D/home

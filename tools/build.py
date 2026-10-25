@@ -1,15 +1,16 @@
 """Build NICCC.ROM: native ASCII16X, 4 MiB.
 
-  SDCC_BIN=... python tools/build.py SCENE1.BIN
+  python tools/build.py SCENE1.BIN | OXYGEN.MSA | ST-NICC2.msa
+  (SDCC's sdasz80/sdldz80 from PATH, or SDCC_BIN=<dir>)
 """
-import os, sys, json, hashlib, subprocess
+import os, sys, json, hashlib, shutil, subprocess, tempfile
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from convert import frames_geo, record, Y_OFF
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'out'
-TOOL = Path(os.environ.get('SDCC_BIN', '/home/linuxbrew/.linuxbrew/bin'))
+TOOL = Path(os.environ['SDCC_BIN']) if 'SDCC_BIN' in os.environ else Path(shutil.which('sdasz80') or 'sdasz80').parent
 ROM_SIZE = 4 << 20
 FIRSTBANK = 1
 
@@ -61,4 +62,10 @@ def build(scene):
 
 
 if __name__ == '__main__':
-    build(sys.argv[1])
+    src = Path(sys.argv[1])
+    if src.suffix.lower() in ('.msa', '.st'):
+        from extract_stream import extract
+        tmp = Path(tempfile.mkdtemp()) / 'scene1.bin'
+        tmp.write_bytes(extract(src))
+        src = tmp
+    build(str(src))
