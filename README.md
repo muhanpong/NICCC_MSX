@@ -1,4 +1,4 @@
-# NICCC_geo3d — ST-NICCC 2000 on MSX turbo R + V9968 + Geo3D
+# NICCC_MSX — ST-NICCC 2000 on MSX turbo R + V9968 + Geo3D
 
 An unofficial fan port of Oxygene's **STNICCC 2000 Demo** (Atari STe, 1st at
 STNICCC 2000) to an MSX turbo R with the V9968 VDP and the Geo3D polygon engine.
