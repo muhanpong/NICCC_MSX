@@ -172,9 +172,21 @@ def render_geo3d(scene, stats):
 
 
 def original_frames():
-    sys.path.insert(0, '/home/sysop/data/msx_niccc_geo3d/tools')
+    # the 2D port's tools (NICCC_MSX/tools) read the original stream; NICCC_SCENE = scene1.bin
+    # or an original disk image (OXYGEN.MSA / ST-NICC2.msa)
+    tools = Path(__file__).resolve().parents[2] / 'tools'
+    sys.path.insert(0, str(tools))
     from niccc import parse
-    return parse('/data/_claude/tmp/msx1-handoff/niccc/scene1.bin')
+    src = os.environ.get('NICCC_SCENE')
+    if not src:
+        sys.exit('set NICCC_SCENE to scene1.bin or an original Oxygene disk image')
+    if src.lower().endswith(('.msa', '.st')):
+        import tempfile
+        from extract_stream import extract
+        tmp = Path(tempfile.mkdtemp()) / 'scene1.bin'
+        tmp.write_bytes(extract(src))
+        src = str(tmp)
+    return parse(src)
 
 
 def render_original(fr):
