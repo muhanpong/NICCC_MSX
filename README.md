@@ -28,6 +28,10 @@ Video and the flat 2D port: see the top of this repository (`../README.md`).
   fork is v1): all 1800 frames, 59.3 fps. **Not yet confirmed on real hardware**
   (MiSTer MSX1 core V9968 build, which has Geo3D v2, is the target).
 - `NICCC3D.ROM`: 1 MiB, ASCII16X.
+- Speed: Geo3D fills each face row by row with V9968 LINE commands. A custom option in the
+  MiSTer MSX1 core's V9968 build (OSD "Geo3D fill (SCREEN 8)" = HMMV, not part of upstream
+  Geo3D) sends those rows as one-row HMMV instead: same pixels, about twice as fast on the
+  V9968 (RTL bench: a tunnel frame 17.1 -> 9.2 ms). The ROM runs the same either way.
 
 ## How it works
 
