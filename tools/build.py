@@ -1,4 +1,4 @@
-"""Build NICCC.ROM: native ASCII16X, 4 MiB.
+"""Build NICCC.ROM: native ASCII16X, 2 MiB.
 
   python tools/build.py SCENE1.BIN | OXYGEN.MSA | ST-NICC2.msa
   (SDCC's sdasz80/sdldz80 from PATH, or SDCC_BIN=<dir>)
@@ -11,7 +11,7 @@ from convert import frames_geo, record, Y_OFF
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'out'
 TOOL = Path(os.environ['SDCC_BIN']) if 'SDCC_BIN' in os.environ else Path(shutil.which('sdasz80') or 'sdasz80').parent
-ROM_SIZE = 4 << 20
+ROM_SIZE = 2 << 20
 FIRSTBANK = 1
 
 

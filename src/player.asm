@@ -2,7 +2,7 @@
 ; R800, SCREEN 5 double buffered, V9968 98h-9Ch, Geo3D 9Dh/9Fh.
 ; Native ASCII16X ROM: bank writes go to 6000h (bank register 0, page
 ; 4000h-7FFFh; the 12-bit bank number is {addr[11:8], data}; every bank of
-; this 4 MiB ROM is below 256, so addr[11:8] = 0).
+; this 2 MiB ROM is below 256, so addr[11:8] = 0).
 ; Setup sequence adapted from kanon-ai V9968_Geo3D_SampleDemo (MIT).
 .module niccc
 .area ROM (ABS)

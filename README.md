@@ -61,7 +61,7 @@ holders want the ROM or the media taken down, they will be.
   (about 43 fps estimated at 3.58 MHz, not measured). Runs on the MiSTer MSX1
   core (V9968 build) on all of these machine types, and on openMSX with the
   Geo3D fork (machine FS-A1ST_V9968).
-* `NICCC.ROM`: 4 MiB, native **ASCII16X** (signature "ASCII16X" at file offset
+* `NICCC.ROM`: 2 MiB, native **ASCII16X** (signature "ASCII16X" at file offset
   10h). openMSX picks "ASCII16-X" from the signature; the MiSTer core detects it
   automatically.
 
@@ -71,7 +71,7 @@ holders want the ROM or the media taken down, they will be.
 
 Needs Python 3 and SDCC's `sdasz80`/`sdldz80` (from PATH, or `SDCC_BIN=<dir>`).
 Output: `out/NICCC.ROM` and `out/manifest.json`. The ROM is reproducible:
-sha256 `36e02b6134e7119e82e9ee64bd060683003e7b170072eeea9e81df646fe44b74`
+sha256 `79f1002479f09dc16fc9416374cfcba9046d83f843ba75c4f5d160982a0ea1eb`
 from either disk. `tools/extract_stream.py DISK [OUT]` writes `scene1.bin` alone.
 
 ## How it works

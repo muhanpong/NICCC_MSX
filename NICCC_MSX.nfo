@@ -3,7 +3,7 @@ NICCC_MSX v1.0 - STNICCC 2000 for MSX + V9968 + Geo3D
 Unofficial port of Oxygene's STNICCC 2000 Demo (Atari STe, 2000).
 Original stream, 1800 frames, 59 fps on turbo R (MiSTer). No music.
 Any MSX with V9968 + Geo3D (MiSTer MSX1 core or openMSX Geo3D fork).
-NICCC.ROM: 4 MiB ASCII16X.
+NICCC.ROM: 2 MiB ASCII16X.
 
 Original: Mon, Laxity, Leonard, Lance / OXYGENE. Port: muhanpong.
 https://github.com/muhanpong/NICCC_MSX
