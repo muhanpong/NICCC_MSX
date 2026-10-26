@@ -9,6 +9,8 @@ Measured on MiSTer (MSX1 core, V9968 build, rbf 20261025a): it runs all
 1,800 frames in a loop at **59.2 fps** on average (60 Hz; about 98 % of the
 frames are drawn within one vertical blank). openMSX (Geo3D fork): 59.9 fps.
 
+Video (MiSTer, real hardware): https://www.youtube.com/watch?v=oe8GPIWK0go
+
 ![frame 100](docs/emu_frame_0100.png) ![frame 1000](docs/emu_frame_1000.png)
 
 *Frames 100 and 1000 (SCREEN 5, 256x212, 2x), rendered by the port's model and
