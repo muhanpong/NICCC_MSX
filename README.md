@@ -1,7 +1,7 @@
-# NICCC_MSX — ST-NICCC 2000 on MSX turbo R + V9968 + Geo3D
+# NICCC_MSX — ST-NICCC 2000 on MSX + V9968 + Geo3D
 
 An unofficial fan port of Oxygene's **STNICCC 2000 Demo** (Atari STe, 1st at
-STNICCC 2000) to an MSX turbo R with the V9968 VDP and the Geo3D polygon engine.
+STNICCC 2000) to MSX with the V9968 VDP and the Geo3D polygon engine (fastest on a turbo R).
 The polygon stream is Oxygene's original one, played back unchanged; the
 renderer is new. There is no music.
 
@@ -55,9 +55,12 @@ holders want the ROM or the media taken down, they will be.
 
 ## Requirements
 
-* MSX turbo R (R800) with a **V9968** VDP and **Geo3D** at ports 9Dh/9Fh.
-  A stock turbo R does not run it. Tested on the MiSTer MSX1 core (V9968
-  build) and on openMSX with the Geo3D fork, machine FS-A1ST_V9968.
+* Any MSX (MSX1, MSX2, MSX2+, turbo R) with a **V9968** VDP and **Geo3D** at
+  ports 9Dh/9Fh; without them it does not run. On a turbo R it switches to the
+  R800 (59.2 fps measured); on a Z80 it plays the same frames more slowly
+  (about 43 fps estimated at 3.58 MHz, not measured). Runs on the MiSTer MSX1
+  core (V9968 build) on all of these machine types, and on openMSX with the
+  Geo3D fork (machine FS-A1ST_V9968).
 * `NICCC.ROM`: 4 MiB, native **ASCII16X** (signature "ASCII16X" at file offset
   10h). openMSX picks "ASCII16-X" from the signature; the MiSTer core detects it
   automatically.
