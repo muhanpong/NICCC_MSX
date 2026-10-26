@@ -1,4 +1,4 @@
-# NICCC_MSX — ST-NICCC 2000 on MSX + V9968 + Geo3D
+# NICCC_MSX — ST-NICCC 2000 on MSX + V9968 + Geo3D (2D and 3D)
 
 An unofficial fan port of Oxygene's **STNICCC 2000 Demo** (Atari STe, 1st at
 STNICCC 2000) to MSX with the V9968 VDP and the Geo3D polygon engine (fastest on a turbo R).
@@ -15,6 +15,19 @@ Video (MiSTer, real hardware): https://www.youtube.com/watch?v=oe8GPIWK0go
 
 *Frames 100 and 1000 (SCREEN 5, 256x212, 2x), rendered by the port's model and
 identical to the openMSX VRAM dumps.*
+
+## Two versions
+
+| | 2D (this folder) | 3D (`3d/`) |
+|---|---|---|
+| Picture | Oxygene's original polygon stream, unchanged | Megus's 3D reconstruction (PICONICCC), rendered live |
+| Geo3D does | fills the precomputed 2D polygons | transform, culling, depth order, filling |
+| Screen | SCREEN 5, 16 colours | SCREEN 8 + EPAL, 78 colours, 256 x 212 |
+| ROM | `NICCC.ROM`, 2 MiB | `NICCC3D.ROM`, 1 MiB |
+| Needs | V9968 + Geo3D | V9968 + **Geo3D v2.0** |
+| Checked | MiSTer board, 59.2 fps | openMSX (Geo3D v2), 59.3 fps; board not yet |
+
+Both ROMs are attached to the release. Details of the 3D version: [`3d/README.md`](3d/README.md).
 
 ## Credits
 
