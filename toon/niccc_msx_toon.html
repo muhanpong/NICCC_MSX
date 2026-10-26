@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NICCC MSX 만화</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Gaegu:wght@400;700&display=swap">
+<style>
+  :root {
+    --paper: #fcfcf9;
+    --ink: #1c1c1a;
+    --pencil: #6b6b66;
+    --shade: #dcdcd6;
+    --yellow: #f2c230;
+    --blue: #2f5ea8;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Gaegu", "Nanum Pen Script", "Comic Sans MS", cursive, sans-serif;
+    font-size: 19px;
+    line-height: 1.45;
+    padding-inline: 16px;
+    padding-block: 28px 48px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; display: grid; gap: 22px; }
+  header h1 {
+    font-family: "Nanum Pen Script", "Gaegu", cursive;
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 60px);
+    line-height: 1;
+    margin: 0;
+    text-wrap: balance;
+  }
+  header p { margin: 6px 0 0; color: var(--pencil); max-width: 62ch; }
+  .strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  @media (max-width: 680px) { .strip { grid-template-columns: 1fr; } }
+  .panel {
+    border: 2.5px solid var(--ink);
+    background: var(--paper);
+    padding: 10px 12px 12px;
+    display: grid;
+    gap: 6px;
+    align-content: start;
+  }
+  .panel h2 {
+    font-family: "Nanum Pen Script", "Gaegu", cursive;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.05;
+    margin: 0;
+  }
+  .panel svg { width: 100%; height: auto; display: block; }
+  .panel p { margin: 0; }
+  .wide { grid-column: 1 / -1; }
+  svg text { font-family: "Gaegu", "Nanum Pen Script", cursive; fill: var(--ink); }
+  .ink { stroke: var(--ink); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .thin { stroke: var(--ink); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  table { width: 100%; border-collapse: collapse; font-size: 19px; }
+  .tablebox { overflow-x: auto; }
+  th, td { border: 2px solid var(--ink); padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { font-family: "Nanum Pen Script", "Gaegu", cursive; font-weight: 400; font-size: 26px; }
+  td.k { color: var(--pencil); white-space: nowrap; }
+  td.us { background: color-mix(in srgb, var(--blue) 9%, var(--paper)); }
+  .note { color: var(--pencil); font-size: 17px; }
+  footer { color: var(--pencil); font-size: 16px; }
+  footer a { color: var(--blue); }
+  @page { size: A4; margin: 12mm; }
+  @media print { body { padding-block: 0; } .panel { break-inside: avoid; } .wide { break-inside: avoid; } }
+</style>
+</head><body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wob" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1,1 L9,5 L1,9" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+    </marker>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header>
+    <h1>STNICCC 2000을 MSX로 옮긴 이야기</h1>
+    <p>2000년 아타리 데모의 도형 1,800장을, 2026년 MSX가 Geo3D 칩으로 다시 그렸다. 아주 쉽게, 그림으로.</p>
+  </header>
+
+  <div class="strip">
+
+    <section class="panel">
+      <h2>1. 2000년, 아타리 ST</h2>
+      <svg viewBox="0 0 360 210" role="img" aria-label="Leonard가 PC에서 3D 장면을 미리 계산해 2D 도형 목록 플로피에 담는 그림">
+        <g filter="url(#wob)">
+          <!-- Leonard -->
+          <circle class="ink" cx="52" cy="62" r="14"/>
+          <path class="ink" d="M52 76 L52 132 M52 92 L80 104 M52 92 L30 110 M52 132 L36 168 M52 132 L68 168"/>
+          <!-- PC -->
+          <rect class="ink" x="92" y="52" width="92" height="66" rx="3"/>
+          <path class="ink" d="M126 118 L120 134 L156 134 L150 118"/>
+          <!-- wire cube on the monitor -->
+          <path class="thin" d="M118 74 L146 70 L160 84 L132 88 Z M118 74 L118 100 L132 112 L132 88 M160 84 L160 106 L132 112"/>
+          <!-- arrow -->
+          <path class="ink" d="M196 86 L248 86" marker-end="url(#arr)"/>
+          <!-- floppy -->
+          <rect class="ink" x="258" y="48" width="78" height="78" rx="3"/>
+          <rect class="thin" x="276" y="48" width="42" height="24"/>
+          <rect x="270" y="88" width="54" height="30" fill="#dcdcd6" stroke="#1c1c1a" stroke-width="1.6"/>
+        </g>
+        <text x="20" y="196" font-size="17">Leonard</text>
+        <text x="198" y="74" font-size="17">미리 계산!</text>
+        <text x="274" y="108" font-size="15">도형 목록</text>
+        <text x="246" y="148" font-size="16">1,800장 · 640 KB</text>
+      </svg>
+      <p>8 MHz 아타리로는 3D를 실시간으로 못 돌린다. 그래서 PC에서 미리 다 계산해, 장마다 "평면 도형 목록"으로만 저장했다.</p>
+    </section>
+
+    <section class="panel">
+      <h2>2. 아타리가 하는 일</h2>
+      <svg viewBox="0 0 360 210" role="img" aria-label="플로피에서 읽은 도형을 68000 CPU가 붓으로 직접 칠하는 그림">
+        <g filter="url(#wob)">
+          <rect class="ink" x="14" y="70" width="52" height="52" rx="3"/>
+          <rect class="thin" x="26" y="70" width="28" height="16"/>
+          <path class="ink" d="M74 96 L112 96" marker-end="url(#arr)"/>
+          <!-- screen with polygons -->
+          <rect class="ink" x="120" y="34" width="132" height="98" rx="3"/>
+          <path d="M132 120 L170 52 L206 120 Z" fill="#f2c230" stroke="#1c1c1a" stroke-width="1.6"/>
+          <path d="M184 120 L232 70 L242 120 Z" fill="#dcdcd6" stroke="#1c1c1a" stroke-width="1.6"/>
+          <!-- CPU stick figure with brush, sweating -->
+          <circle class="ink" cx="300" cy="64" r="14"/>
+          <path class="ink" d="M300 78 L300 132 M300 92 L264 90 M300 92 L324 110 M300 132 L286 168 M300 132 L316 168"/>
+          <path class="ink" d="M264 90 L246 98"/>
+          <path d="M240 96 L250 100 L246 106 Z" fill="#1c1c1a"/>
+          <path class="thin" d="M318 46 q4 6 0 10 M326 52 q4 6 0 10"/>
+        </g>
+        <text x="268" y="196" font-size="17">CPU 68000</text>
+        <text x="14" y="146" font-size="15">디스크에서</text>
+        <text x="14" y="164" font-size="15">조금씩 읽기</text>
+      </svg>
+      <p>디스크에서 목록을 읽어 오고, CPU가 도형을 한 줄 한 줄 직접 칠한다. 칠하기가 제일 큰 일이다.</p>
+    </section>
+
+    <section class="panel">
+      <h2>3. 2026년, 우리 MSX</h2>
+      <svg viewBox="0 0 360 210" role="img" aria-label="같은 도형 목록을 PC 변환기가 Geo3D 주문서로 번역해 2MB 롬 카트리지에 담는 그림">
+        <g filter="url(#wob)">
+          <!-- same floppy -->
+          <rect class="ink" x="12" y="62" width="58" height="58" rx="3"/>
+          <rect class="thin" x="25" y="62" width="32" height="18"/>
+          <path class="ink" d="M78 92 L112 92" marker-end="url(#arr)"/>
+          <!-- laptop converter -->
+          <path class="ink" d="M124 60 L200 60 L200 112 L124 112 Z M112 112 L212 112 L220 126 L104 126 Z"/>
+          <path class="thin" d="M136 76 L188 76 M136 88 L178 88 M136 100 L184 100"/>
+          <path class="ink" d="M226 92 L258 92" marker-end="url(#arr)"/>
+          <!-- cartridge -->
+          <path class="ink" d="M268 50 L344 50 L344 138 L268 138 Z"/>
+          <path class="thin" d="M276 138 L276 150 M290 138 L290 150 M304 138 L304 150 M318 138 L318 150 M332 138 L332 150"/>
+          <rect x="280" y="64" width="52" height="36" fill="#2f5ea8" opacity="0.18" stroke="#1c1c1a" stroke-width="1.6"/>
+        </g>
+        <text x="8" y="146" font-size="15">원본 그대로</text>
+        <text x="116" y="150" font-size="16">번역기 (PC)</text>
+        <text x="283" y="88" font-size="16">ROM</text>
+        <text x="256" y="176" font-size="16">2 MB 카트리지</text>
+      </svg>
+      <p>도형 데이터는 한 바이트도 안 바꿨다. 대신 PC에서 미리 "Geo3D가 알아듣는 주문서"로 번역해서 롬에 넣었다.</p>
+    </section>
+
+    <section class="panel">
+      <h2>4. MSX가 하는 일</h2>
+      <svg viewBox="0 0 360 210" role="img" aria-label="R800 CPU가 주문서를 던지면 Geo3D 로봇이 화면을 줄마다 칠하는 그림">
+        <g filter="url(#wob)">
+          <!-- R800 relaxed -->
+          <circle class="ink" cx="40" cy="70" r="14"/>
+          <path class="ink" d="M40 84 L40 136 M40 98 L70 86 M40 98 L22 118 M40 136 L26 170 M40 136 L54 170"/>
+          <!-- flying orders -->
+          <rect class="thin" x="78" y="66" width="18" height="13" transform="rotate(-12 87 72)"/>
+          <rect class="thin" x="104" y="58" width="18" height="13" transform="rotate(8 113 64)"/>
+          <path class="thin" d="M80 92 q20 -30 46 -20" marker-end="url(#arr)"/>
+          <!-- Geo3D robot -->
+          <rect class="ink" x="140" y="56" width="50" height="46" rx="4"/>
+          <rect class="thin" x="150" y="68" width="10" height="8"/>
+          <rect class="thin" x="170" y="68" width="10" height="8"/>
+          <path class="ink" d="M152 90 L178 90 M165 102 L165 124 M150 124 L180 124 L180 150 L150 150 Z M150 160 L150 150 M180 160 L180 150"/>
+          <path class="ink" d="M190 112 L232 102"/>
+          <!-- screen painted row by row -->
+          <rect class="ink" x="238" y="38" width="108" height="110" rx="3"/>
+          <path stroke="#f2c230" stroke-width="7" stroke-linecap="butt" fill="none" d="M262 66 L300 66 M256 76 L306 76 M250 86 L312 86 M246 96 L318 96"/>
+          <path class="thin" d="M262 62 L300 62 M262 70 L300 70"/>
+        </g>
+        <text x="20" y="196" font-size="17">R800</text>
+        <text x="138" y="182" font-size="17">Geo3D 칩</text>
+        <text x="240" y="170" font-size="15">"여기서 저기까지"</text>
+        <text x="240" y="188" font-size="15">줄마다 칠하기</text>
+      </svg>
+      <p>CPU는 주문서를 넘기기만 한다. 칠하기는 Geo3D 칩이 V9968 화면 칩에게 "이 줄은 여기서 저기까지" 하고 시킨다. 다 그리면 화면 두 장을 바꿔 끼운다.</p>
+    </section>
+
+    <section class="panel wide">
+      <h2>5. 한눈에 비교</h2>
+      <div class="tablebox">
+        <table>
+          <thead>
+            <tr><th></th><th>아타리 ST 원작 (2000)</th><th>우리 MSX판 (2026)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="k">도형 데이터</td><td>Oxygene가 만든 1,800장</td><td class="us">같은 것, 바이트 그대로</td></tr>
+            <tr><td class="k">담는 곳</td><td>플로피, 640 KB를 읽어 가며 재생</td><td class="us">2 MB 롬 (미리 번역해서 1.75 MB)</td></tr>
+            <tr><td class="k">칠하는 손</td><td>CPU (68000, 8 MHz)</td><td class="us">Geo3D + V9968 하드웨어</td></tr>
+            <tr><td class="k">CPU가 하는 일</td><td>읽기 + 칠하기 전부</td><td class="us">주문서 넘기기 + 화면 바꾸기</td></tr>
+            <tr><td class="k">필요한 기계</td><td>아타리 STE (STF도 됨)</td><td class="us">V9968 + Geo3D가 있는 MSX (turbo R면 제일 빠름)</td></tr>
+            <tr><td class="k">음악</td><td>있음 (Laxity)</td><td class="us">없음</td></tr>
+            <tr><td class="k">속도</td><td>(이번엔 안 쟀음)</td><td class="us">초당 59.2장, MiSTer 실기 측정</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>6. 계산보다 빨랐다</h2>
+      <svg viewBox="0 0 360 230" role="img" aria-label="초당 장수 막대그래프: 우리 계산 50.5, MiSTer 실기 59.2, openMSX 59.9, 최대 60">
+        <!-- scale: 0 fps at y=190, 60 fps at y=40 (2.5 px per fps) -->
+        <g filter="url(#wob)">
+          <path class="ink" d="M60 30 L60 190 L340 190"/>
+          <path class="thin" stroke-dasharray="6 6" d="M60 40 L340 40"/>
+          <rect x="88" y="63.75" width="56" height="126.25" fill="#dcdcd6" stroke="#1c1c1a" stroke-width="2"/>
+          <rect x="172" y="42" width="56" height="148" fill="#2f5ea8" fill-opacity="0.35" stroke="#1c1c1a" stroke-width="2"/>
+          <rect x="256" y="40.25" width="56" height="149.75" fill="#dcdcd6" stroke="#1c1c1a" stroke-width="2"/>
+        </g>
+        <text x="20" y="44" font-size="15">60</text>
+        <text x="28" y="194" font-size="15">0</text>
+        <text x="300" y="34" font-size="15">최대 60</text>
+        <text x="96" y="58" font-size="17">50.5</text>
+        <text x="184" y="120" font-size="18">59.2</text>
+        <text x="266" y="120" font-size="18">59.9</text>
+        <text x="82" y="210" font-size="15">우리 계산</text>
+        <text x="166" y="210" font-size="15">MiSTer 실기</text>
+        <text x="258" y="210" font-size="15">openMSX</text>
+        <text x="64" y="16" font-size="15">"어? 생각보다 잘 나오네"</text>
+      </svg>
+      <p>미리 계산해 본 값은 초당 50장 정도였다. 실기에서 재 보니 59.2장. 거의 모든 장면을 한 화면 시간 안에 그린다.</p>
+    </section>
+
+    <section class="panel">
+      <h2>7. 작은 비밀</h2>
+      <svg viewBox="0 0 360 230" role="img" aria-label="오목한 도형의 움푹한 부분이 줄 단위 칠하기 때문에 조금 메워지는 그림">
+        <g filter="url(#wob)">
+          <!-- concave shape: original -->
+          <path d="M30 60 L150 60 L150 170 L90 120 L30 170 Z" fill="#f2c230" stroke="#1c1c1a" stroke-width="2.4" stroke-linejoin="round"/>
+          <!-- Geo3D fill: notch filled -->
+          <path d="M200 60 L320 60 L320 170 L200 170 Z" fill="#dcdcd6" stroke="none"/>
+          <path d="M200 60 L320 60 L320 170 L260 120 L200 170 Z" fill="#f2c230" stroke="#1c1c1a" stroke-width="2.4" stroke-linejoin="round"/>
+          <path class="thin" stroke-dasharray="4 4" d="M200 170 L320 170"/>
+          <path class="thin" d="M260 200 L260 152" marker-end="url(#arr)"/>
+        </g>
+        <text x="46" y="44" font-size="16">원래 도형</text>
+        <text x="206" y="44" font-size="16">Geo3D가 칠한 것</text>
+        <text x="200" y="220" font-size="15">홈이 살짝 메워짐 (회색)</text>
+      </svg>
+      <p>Geo3D는 한 줄에서 "제일 왼쪽부터 제일 오른쪽까지" 칠한다. 그래서 움푹한 도형은 홈이 조금 메워진다. 해당 도형은 전체의 2.9%, 한 도형당 평균 9픽셀쯤 더 칠해질 뿐이라 아무도 눈치 못 챈다(그림은 과장).</p>
+    </section>
+
+  </div>
+
+  <footer>
+    원작: STNICCC 2000 Demo by Oxygene (GFX Mon, Music Laxity, Code Leonard, STE player Lance) ·
+    이식: muhanpong · 소스 <a href="https://github.com/muhanpong/NICCC_MSX">github.com/muhanpong/NICCC_MSX</a> ·
+    영상 <a href="https://www.youtube.com/watch?v=oe8GPIWK0go">YouTube</a>
+  </footer>
+</div>
+</body></html>
